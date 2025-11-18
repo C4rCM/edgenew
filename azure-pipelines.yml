@@ -60,4 +60,4 @@ stages:
           deploymentid: '$(System.TeamProject)-devops-deployment'
           priority: '0'
           deviceOption: 'Single Device'
-          deviceId: 'edgedeviceidentityprclase1'
+          deviceId: 'edgedeviceidentityprclase2'
