@@ -54,11 +54,11 @@ stages:
       - task: AzureIoTEdge@2
         displayName: 'Deploy to IoT Edge Devices'
         inputs:
-          action: 'Generate deployment manifest'
+          action: 'Deploy to IoT Edge devices'
           deploymentFilePath: '$(System.DefaultWorkingDirectory)/config/deployment.json'
           azureSubscription: 'AzureDevEdgePrpyecto'
           iothubname: 'IoTEdgeResourcesPrClase'
           deploymentid: '$(System.TeamProject)-devops-deployment'
           priority: '0'
           deviceOption: 'Single Device'
-          deviceId: 'edgedeviceidentityprclase2'
+          deviceId: 'edgedeviceidentityprclase1'
