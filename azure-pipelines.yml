@@ -42,9 +42,6 @@ stages:
           python3.9 -m pip install -U iotedgedev pyOpenSSL==22.0.0 urllib3==1.22 requests
         displayName: 'Command Line Script'
   
-      - script: |
-          docker login -u $(CONTAINER_REGISTRY_USERNAME) -p $(CONTAINER_REGISTRY_PASSWORD) $(CONTAINER_REGISTRY_ADDRESS)
-        displayName: 'Logging ACR'
       - task: AzureIoTEdge@2
         displayName: 'Generate Deployment Manifest'
         inputs:
@@ -57,11 +54,11 @@ stages:
       - task: AzureIoTEdge@2
         displayName: 'Deploy to IoT Edge Devices'
         inputs:
-          action: 'Deploy to IoT Edge devices'
+          action: 'Generate deployment manifest'
           deploymentFilePath: '$(System.DefaultWorkingDirectory)/config/deployment.json'
           azureSubscription: 'AzureDevEdgePrpyecto'
           iothubname: 'IoTEdgeResourcesPrClase'
           deploymentid: '$(System.TeamProject)-devops-deployment'
           priority: '0'
           deviceOption: 'Single Device'
-          deviceId: 'edgedeviceidentityprclase1'
+          deviceId: 'edgedeviceidentityprclase2'
