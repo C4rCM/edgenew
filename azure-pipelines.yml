@@ -41,6 +41,10 @@ stages:
           python3.9 get-pip.py
           python3.9 -m pip install -U iotedgedev pyOpenSSL==22.0.0 urllib3==1.22 requests
         displayName: 'Command Line Script'
+  
+      - script: |
+          docker login -u $(CONTAINER_REGISTRY_USERNAME) -p $(CONTAINER_REGISTRY_PASSWORD) $(CONTAINER_REGISTRY_ADDRESS)
+        displayName: 'Logging ACR'
       - task: AzureIoTEdge@2
         displayName: 'Generate Deployment Manifest'
         inputs:
